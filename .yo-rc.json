@@ -1,0 +1,8 @@
+{
+  "@inrupt/generator-solid-react": {
+    "promptValues": {
+      "appName": "SolidBase",
+      "appVersion": "0.0.1"
+    }
+  }
+}
