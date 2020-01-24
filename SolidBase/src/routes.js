@@ -8,9 +8,7 @@ import {
   PageNotFound,
   Welcome,
   RegistrationSuccess,
-  Profile,
-  GameList,
-  GamePage
+  Profile
 } from './containers';
 
 const privateRoutes = [
@@ -23,16 +21,6 @@ const privateRoutes = [
     id: 'profile',
     path: '/profile',
     component: Profile
-  },
-  {
-    id: 'tictactoe',
-    path: '/tictactoe',
-    component: GameList
-  },
-  {
-    id: 'tictactoegame',
-    path: '/tictactoe/:gameId',
-    component: GamePage
   }
 ];
 

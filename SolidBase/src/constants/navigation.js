@@ -13,12 +13,6 @@ export const NavigationItems = [
     icon: '/img/people.svg',
     label: 'navBar.profile',
     to: '/profile'
-  },
-  {
-    id: 'tictactoe',
-    icon: '/img/icon/tictactoe.svg',
-    label: 'navBar.tictactoe',
-    to: '/tictactoe'
   }
 ];
 
