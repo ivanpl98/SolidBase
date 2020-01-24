@@ -110,6 +110,7 @@ export const LoginSubtitle = styled.h2`
 export const MyLink = styled(Link)`
   font-family: "Raleway", sans-serif;
   font-weight: bold;
+  font-size: 34px;
   &:link {
     text-decoration: none;
     color: #083575;

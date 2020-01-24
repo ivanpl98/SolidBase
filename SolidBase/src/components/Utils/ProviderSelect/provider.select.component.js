@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import Select, { components } from 'react-select';
-import { SelectOptions } from '@entities';
+import { SelectOptions } from '../../../entities';
 
 import { Item, Icon, ItemText } from './styled.components';
 

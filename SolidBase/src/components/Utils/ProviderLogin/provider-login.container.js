@@ -5,10 +5,10 @@ import LoginForm from './children/Form';
 // Utils
 import { SolidError } from '@utils';
 // Entities
-import { Provider } from '@entities';
+import { Provider } from '../../../entities';
 
-import SolidImg from '../../../assets/solid_logo.png';
-import InruptImg from '../../../assets/inrupt_logo.png';
+import SolidImg from '../../../images/Solid.png';
+import InruptImg from '../../../images/logo.svg';
 
 type Props = {
   providers?: Array<Provider>,

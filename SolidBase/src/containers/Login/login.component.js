@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ProviderLogin, ProviderSelect } from "@inrupt/solid-react-components";
+import { ProviderLogin, ProviderSelect } from "@components/Utils";
 import {
   LoginWrapper,
   LoginPanel,
@@ -32,8 +32,7 @@ const LoginComponent = () => {
             <LoginTitle data-testid="title">empathy.co</LoginTitle>
             <LoginSubtitle data-testid="subtitle">POD Management</LoginSubtitle>
             <PanelBody className="panel-body">
-              <MyLink to="/register">Sign up</MyLink>
-              <ProviderLogin
+            <ProviderLogin
                 selectPlaceholder={t("login.selectPlaceholder")}
                 inputPlaholder={t("login.inputPlaholder")}
                 formButtonText={t("login.formButtonText")}
@@ -53,6 +52,7 @@ const LoginComponent = () => {
                   linkButton: ""
                 }}
               />
+              <MyLink to="/register">Sign up</MyLink>
             </PanelBody>
           </LoginPanel>
         </CenterContainer>

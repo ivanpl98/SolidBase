@@ -30,5 +30,6 @@ export {
   LanguageDropdown,
   Toaster,
   Select,
-  Labeled
+  Labeled,
+  ProviderLogin
 };

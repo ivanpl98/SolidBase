@@ -1,17 +1,28 @@
-import styled from 'styled-components';
-import { Panel } from '@util-components';
+import styled from "styled-components";
+import { Panel } from "@util-components";
+import { CenterContainer } from "@util-components";
 
 export const RegisterWrapper = styled.section`
   h1 {
-    color: #ffffff;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+    color: #083575;
   }
+`;
 
-  //Todo: figure out why this is necessary
-  margin-top: 100px;
+export const MyCenterContainer = styled(CenterContainer)`
+  margin: 0;
+  height: 100%;
 `;
 
 export const RegisterPanel = styled(Panel)`
   justify-content: space-between;
+  background: none;
+  border: none;
+  box-shadow: none;
+  height: 60%;
+  align-self: center;
 `;
 
 export const PanelHeader = styled.div`
@@ -20,7 +31,7 @@ export const PanelHeader = styled.div`
   h2 {
     position: relative;
     padding: 0;
-    color: #5361fd;
+    color: #083575;
     font-family: Raleway;
     font-size: 20px;
     font-weight: bold;
@@ -28,15 +39,6 @@ export const PanelHeader = styled.div`
     line-height: 24px;
     text-align: center;
     margin: 0;
-    animation: fadeIn 0.5s ease-in;
-  }
-
-  .progress-bar {
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    background: #5361fd;
-    top: 30px;
   }
 `;
 
@@ -45,18 +47,32 @@ export const PanelBody = styled.div`
   animation: fadeIn 0.2s ease-in;
 
   a {
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 34px;
     display: block;
     color: #449df5;
-    font-family: Raleway;
-    font-size: 12px;
-    font-weight: 500;
     letter-spacing: 0.75px;
     line-height: 14px;
     text-align: center;
     text-decoration: none;
+    margin: 50px 0;
 
+    &:link {
+      text-decoration: none;
+      color: #083575;
+    }
+    &:visited {
+      text-decoration: none;
+      color: #083575;
+    }
     &:hover {
-      font-weight: 700;
+      text-decoration: none;
+      color: #083575;
+    }
+    &:active {
+      text-decoration: none;
+      color: #083575;
     }
   }
 
@@ -75,7 +91,7 @@ export const Actions = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: center;
 
   button {
     height: 32px;
@@ -93,8 +109,12 @@ export const Actions = styled.div`
   }
 
   .btn-solid {
-    background-color: #449df5;
-    color: #ffffff;
+    background: none;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: #083575;
+    border: none;
   }
 
   .btn-outlined {

@@ -7,7 +7,7 @@ export const CenterContainerWrapper = styled.section`
   align-items: center;
   text-align: center;
   align-self:center;
-  margin: 24%;
+  margin: 14%;
   h1 {
     padding: 0;
     text-align: center;
