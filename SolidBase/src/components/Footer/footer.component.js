@@ -1,7 +1,11 @@
-import React from 'react';
-import { IconLookup, IconDefinition, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { withTranslation } from 'react-i18next';
+import React from "react";
+import {
+  IconLookup,
+  IconDefinition,
+  findIconDefinition
+} from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { withTranslation } from "react-i18next";
 
 type Props = {
   t: Function
@@ -9,7 +13,7 @@ type Props = {
 
 const Footer = (props: Props) => {
   const { t } = props;
-  const githubIcon: IconLookup = { prefix: 'fab', iconName: 'github' };
+  const githubIcon: IconLookup = { prefix: "fab", iconName: "github" };
   const githubIconDef: IconDefinition = findIconDefinition(githubIcon);
 
   return (
@@ -17,10 +21,13 @@ const Footer = (props: Props) => {
       <section className="solid-footer__content">
         <div className="solid-footer__content--copyright">
           <ul>
-            <li>© {process.env.REACT_APP_COMPANY_NAME}</li>
+            <li>© empathy.co</li>
             <li>
-              {t('footer.version')}
-              {''} <span className="build-value">{process.env.REACT_APP_VERSION}</span>
+              {t("footer.version")}
+              {""}{" "}
+              <span className="build-value">
+                {process.env.REACT_APP_VERSION}
+              </span>
             </li>
           </ul>
         </div>
@@ -29,22 +36,12 @@ const Footer = (props: Props) => {
           <ul>
             <li>
               <a
-                href="https://github.com/Inrupt-inc/solid-react-sdk"
+                href="https://github.com/ivanpl98/SolidBase"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon className="link-icon" icon={githubIconDef} />
                 react-solid-sdk
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/Inrupt-inc/solid-style-guide"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon className="link-icon" icon={githubIconDef} />
-                solid-style-guide
               </a>
             </li>
           </ul>
