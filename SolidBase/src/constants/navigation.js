@@ -13,7 +13,15 @@ export const NavigationItems = [
     icon: '/img/people.svg',
     label: 'navBar.profile',
     to: '/profile'
+  },
+  {
+    id: 'friendlist',
+    icon: '/img/people.svg',
+    label: 'Friends',
+    to: '/friendlist'
   }
+
+
 ];
 
 export const ProfileOptions = [
@@ -27,4 +35,5 @@ export const ProfileOptions = [
     onClick: 'logOut',
     icon: 'lock'
   }
+
 ];
