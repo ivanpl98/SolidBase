@@ -13,6 +13,7 @@ import Toaster from './ToasterNotification/toaster.component';
 import Select from './Select';
 import ConfirmationDialog from './ConfirmationDialog';
 import Labeled from './Labeled';
+import ProviderLogin from './ProviderLogin';
 
 export {
   ImageBackground,
