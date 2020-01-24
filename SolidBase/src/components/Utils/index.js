@@ -1,4 +1,5 @@
-import GradientBackground from './GradientBackground';
+import ImageBackground from './ImageBackground';
+import InfoImageBackground from './InfoImageBackground';
 import CenterContainer from './CenterContainer';
 import Panel from './Panel';
 import Dropdown from './Dropdown';
@@ -12,9 +13,11 @@ import Toaster from './ToasterNotification/toaster.component';
 import Select from './Select';
 import ConfirmationDialog from './ConfirmationDialog';
 import Labeled from './Labeled';
+import ProviderLogin from './ProviderLogin';
 
 export {
-  GradientBackground,
+  ImageBackground,
+  InfoImageBackground,
   CenterContainer,
   ConfirmationDialog,
   ToasterNotification,
@@ -27,5 +30,6 @@ export {
   LanguageDropdown,
   Toaster,
   Select,
-  Labeled
+  Labeled,
+  ProviderLogin
 };

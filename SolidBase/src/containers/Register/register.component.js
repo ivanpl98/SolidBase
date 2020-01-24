@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-import { GradientBackground, CenterContainer } from '@util-components';
-import { RegisterWrapper, RegisterPanel, PanelHeader, PanelBody, Actions } from './register.style';
+import { ImageBackground, CenterContainer } from '@util-components';
+import { RegisterWrapper, RegisterPanel, PanelHeader, PanelBody, Actions, MyCenterContainer } from './register.style';
 import { ProviderItem } from './children';
 
 type Provider = {};
@@ -71,15 +71,14 @@ class RegisterComponent extends Component<Props, State> {
     const { providers, t } = this.props;
 
     return (
-      <GradientBackground>
-        <CenterContainer>
+      <ImageBackground>
+        <MyCenterContainer>
           <RegisterWrapper data-testid="register-wrapper">
-            <h1 data-testid="title">{t('register.title')}</h1>
+            <h1 data-testid="title">empathy.co</h1>
             <form onSubmit={this.onSubmit}>
               <RegisterPanel className="register-panel">
                 <PanelHeader className="panel-header" data-testid="panel-header">
                   <h2>{t('register.step1Title')}</h2>
-                  <div className="progress-bar" />
                 </PanelHeader>
                 <PanelBody className="panel-body">
                   <Fragment>
@@ -120,8 +119,8 @@ class RegisterComponent extends Component<Props, State> {
               </RegisterPanel>
             </form>
           </RegisterWrapper>
-        </CenterContainer>
-      </GradientBackground>
+        </MyCenterContainer>
+      </ImageBackground>
     );
   }
 }

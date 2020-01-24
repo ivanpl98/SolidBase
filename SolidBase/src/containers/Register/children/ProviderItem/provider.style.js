@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProviderItemStyle = styled.label`
   cursor: pointer;
   display: flex;
   align-items: center;
   width: 100%;
-  border: solid 1.2px rgba(115, 127, 137, 1);
+  border: none;
   height: 40px;
   margin-bottom: 20.5px;
   box-sizing: border-box;
@@ -14,10 +14,12 @@ export const ProviderItemStyle = styled.label`
   overflow: hidden;
   box-sizing: border-box;
   transition: all 0.2s ease-in;
-  display: flex;
   justify-content: space-between;
   padding: 0 8px;
-  border-radius: 4px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #083575;
 
   .checked {
     display: none;
@@ -37,7 +39,7 @@ export const ProviderItemStyle = styled.label`
     align-items: center;
 
     img {
-      width: 32px;
+      width: 50px;
       padding-right: 1em;
     }
   }
@@ -48,7 +50,7 @@ export const Item = styled.li`
   padding: 10px 0;
   margin: 0;
 
-  & input[type='radio'] {
+  & input[type="radio"] {
     display: none;
 
     &:checked {
