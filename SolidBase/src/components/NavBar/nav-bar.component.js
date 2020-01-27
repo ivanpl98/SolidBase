@@ -1,6 +1,12 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import { Navigation, Toolbar, HamburgerButton, MobileNavigation } from './children';
+import React, { useEffect, useState, Fragment } from "react";
+import { Link } from "react-router-dom";
+import {
+  Navigation,
+  Toolbar,
+  HamburgerButton,
+  MobileNavigation
+} from "./children";
+import styled from "styled-components";
 
 type Props = {
   t: Function,
@@ -18,16 +24,16 @@ const NavBar = (props: Props) => {
   const setNavFixed = () => {
     if (componentElement) {
       const navHeight = componentElement.clientHeight;
-      const content = document.getElementsByClassName('contentApp');
+      const content = document.getElementsByClassName("contentApp");
       if (content.length > 0) {
-        content[0].style['padding-top'] = `${navHeight}px`;
+        content[0].style["padding-top"] = `${navHeight}px`;
       }
     }
   };
 
   const onComponentResize = () => {
     setNavFixed();
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       setNavFixed();
 
       if (window.innerWidth >= 1024 && isOpenMobile) {
@@ -37,7 +43,7 @@ const NavBar = (props: Props) => {
   };
 
   const getUserProfileOptions = () => {
-    const profile = toolbar ? toolbar.filter(bar => bar.id !== 'language') : [];
+    const profile = toolbar ? toolbar.filter(bar => bar.id !== "language") : [];
     setProfileOption(profile);
   };
 
@@ -53,13 +59,51 @@ const NavBar = (props: Props) => {
     setOpenMobile(!isOpenMobile);
   };
 
+  const MyLogo = styled.p`
+    background: linear-gradient(to bottom right, #7c4dff, #18a9e6, #01c9ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-self: center;
+    margin: 0;
+    font-size: 24px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+  `;
+
+  const MyLink = styled(Link)`
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 34px;
+    &:link {
+      text-decoration: none;
+      color: #083575;
+    }
+    &:visited {
+      text-decoration: none;
+      color: #083575;
+    }
+    &:hover {
+      text-decoration: none;
+      color: #083575;
+    }
+    &:active {
+      text-decoration: none;
+      color: #083575;
+    }
+  `;
+
   return (
-    <header role="navigation" className="header header__desktop fixed" ref={componentElement}>
+    <header
+      role="navigation"
+      className="header header__desktop fixed"
+      ref={componentElement}
+    >
       <section className="header-wrap">
         <div className="logo-block">
-          <Link to="/welcome">
-            <img src="/img/inrupt.svg" alt="inrupt" />
-          </Link>
+          <MyLink to="/welcome">
+            <MyLogo>empathy.co</MyLogo>
+          </MyLink>
         </div>
 
         {isOpenMobile ? (
