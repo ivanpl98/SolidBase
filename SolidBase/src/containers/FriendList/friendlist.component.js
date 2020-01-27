@@ -1,11 +1,27 @@
-import React from 'react';
-//import { CenterContainer } from '@util-components';
-//import { ProviderLogin, withWebId } from '@inrupt/solid-react-components';
+import React, { useState } from "react";
+import { RdfService } from "@services";
+import auth from "solid-auth-client";
+import * as rdf from "rdflib";
 import {List, Image,Value,useLDflexList,useLDflexValue, useWebId,  Name} from '@solid/react';
 import {lib} from '@solid/query-ldflex';
 import {ImageProfile} from '/components/ImageProfile/image-profile.component';
 import data from "@solid/query-ldflex";
 const $rdf = require('rdflib');
+import { solid } from "@solid/query-ldflex";
+import { rdfService } from "@services";
+import {FriendListItem} from "@components";
+
+//import { CenterContainer } from '@util-components';
+//import { ProviderLogin, withWebId } from '@inrupt/solid-react-components';
+
+async function getFriends() {
+  let friends = await rdfService.getContacts();
+  console.log(friends);
+  return friends;
+}
+function viewProfile(profile) {
+  window.open(profile);
+}
 
 function friends() {
   /*let friends   = solid.data[useWebId()].friends
@@ -19,9 +35,6 @@ function friends() {
 
   return friends
 }
-function viewProfile(profile) {
-  window.open(profile)
- }
 function deletefriend(profile) {
   if (window.confirm("Do you really want to delete "+profile+" from your friends?")) {
       let FOAF = $rdf.Namespace('http://xmlns.com/foaf/0.1/'); // n0
@@ -45,15 +58,10 @@ function deletefriend(profile) {
     return user;
   }
 function friendlist() {
-  const name = useLDflexValue('user.name') || 'unknown';
+  const name = useLDflexValue("user.name") || "unknown";
 
-  const friends = useLDflexList('user.friends');
+  const friends = useLDflexList("user.friends");
 
-  /*let fmap = friends.map(function(friend) {
-    let url = <a href={friend.toString()}>{friend.toString()} </a>
-    return   url
-  })*/
-   return <p> {name.toString()} friends  are:    </p>
 }
 function  proimage() {
   const img = useLDflexValue('user.image');
@@ -61,34 +69,44 @@ return img + "";
 }
 function profilephoto( ) {
 
-    // We are fetching profile card document
-    const { user } = data;
-    const image = user.friends;
-    return image  + '';
+export default class FriendListComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      friends: [],
+      user: ""
+    };
+  }
 
-}
-const FriendListComponent = () => {
-  return (<p>
-       This is {[useWebId()]} a list of friends {friendlist()}
+  async componentDidMount() {
+    const frs = await getFriends();
+    const us = await rdfService.getWebId();
+    console.log(frs);
+    this.setState({ friends: frs, user: us });
+  }
 
-      <List src={friends()}>{friend =>
-        <li key={friend}>
-          <button onClick={() => viewProfile(friend.toString())}>
-            <Value src={`[${friend}].name`}> {`${friend}`}</Value>
+  render() {
+    console.log(this.state.friends);
+    const friendsList = (
+      <div>
+        {this.state.friends.map(friend => {
+          return (
+         <FriendListItem user = {friend.value}></FriendListItem>
+         <button onClick={() => deletefriend(friend.value)}>
+            <Value src={friend.value}>  Delete Friend</Value>
           </button>
+        );
+        })}
+        ;
+      </div>
+    );
+    return (
+      <div>
+        <p>This is the friend list of {this.state.user}:</p>
+        {friendsList}
+      </div>
+    );
+  }
+} 
 
-          <button onClick={() => deletefriend(friend)}>
-            <Value src={`[${friend}].email`}>  Delete Friend</Value>
-          </button>
-
-        </li>}
-      </List>
-
-      <ImageProfile/>
-
-    </p>
-  );
-
-}
-export default FriendListComponent;
 
